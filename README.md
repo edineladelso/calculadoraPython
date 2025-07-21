@@ -2,7 +2,12 @@
 <h1 align="center">Calculadora Python</h1>
 
 Uma calculadora simples, interativa e extensível feita em Python, capaz de realizar operações matemáticas básicas e avançadas diretamente pelo terminal.
-
+<p>
+   link do repositorio
+  <a href="https://github.com/edineladelso/calculadoraPython" target="_blank">
+    https://github.com/edineladelso/calculadoraPython
+  </a>
+</p>
 ## Funcionalidades
 
 - Adição (`+`)
