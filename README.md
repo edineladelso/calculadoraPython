@@ -8,6 +8,7 @@ Uma calculadora simples, interativa e extensível feita em Python, capaz de real
     https://github.com/edineladelso/calculadoraPython
   </a>
 </p>
+
 ## Funcionalidades
 
 - Adição (`+`)
