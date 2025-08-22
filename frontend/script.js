@@ -12,16 +12,18 @@ scButtons.forEach(function (val) {
     })
 })
 
-operadores.forEach( function(oper) {oper.addEventListener("click", () => {
-    if (oper.classList.contains("b1Elevado")) {
-        inText.value += "^";
-    } else if (oper.classList.contains("b2Raiz")) {
-        inText.value += "√";
-    }
-    inText.focus();
-    inText.setSelectionRange(inText.value.length, inText.value.length);
-    dvAnswer.textContent = ""; // Limpa a resposta ao inserir um operador
-})})
+operadores.forEach(function (oper) {
+    oper.addEventListener("click", () => {
+        if (oper.classList.contains("b1Elevado")) {
+            inText.value += "^";
+        } else if (oper.classList.contains("b2Raiz")) {
+            inText.value += "√";
+        }
+        inText.focus();
+        inText.setSelectionRange(inText.value.length, inText.value.length);
+        dvAnswer.textContent = ""; // Limpa a resposta ao inserir um operador
+    })
+})
 
 btReset.addEventListener("click", () => {
     inText.value = ""
@@ -34,6 +36,28 @@ backspace.addEventListener("click", () => {
 
 btEnter.addEventListener("click", () => {
     dvAnswer.textContent = inText.value
+})
+// pegando o valor do input e enviando para o backend
+btEnter.addEventListener("click", async () => {
+    const expressao = inText.value;
+    try {
+        const response = await fetch("http://http://127.0.0.1:5000/calcular", {
+            methodo: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ expressao })
+        });
+        const data = await response.json();
+        if (data.resultado !== undefined) {
+            dvAnswer.textContent = data.resultado;
+        }
+        else {
+            dvAnswer.textContent = "Erro: " (data.erro || "Resposta inesperada do servidor.");
+        }
+    } catch (error) {
+        dvAnswer.textContent = "Erro na conexão.";
+    }
 })
 
 inText.addEventListener("keydown", function (event) {
