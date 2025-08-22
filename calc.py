@@ -16,7 +16,9 @@ def Elevar(a, b):
 def Raiz(a, b):
     return a**(1/b)
 
-def em(n):                          # em = expressao matematica == RECEBER exprecao matematica para realizar o calculo
+def em(n):
+    """em = expressao matematica == RECEBER exprecao matematica para realizar o calculo"""
+    
     sv = ""
     l = []
     for i in n:
