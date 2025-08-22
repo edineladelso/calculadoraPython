@@ -11,7 +11,7 @@ def calcular():
     data = request.get_json()
     expressao = data.get('expressao', '')
     try:
-        resultado = Calcular(expressao)
+        resultado = Calcular(expressao) # Certifique-se que Calcular retorna o resultado correto
         return jsonify({'resultado': resultado})
     except Exception as e:
         return jsonify({'erro': str(e)}), 400

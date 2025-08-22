@@ -41,8 +41,8 @@ btEnter.addEventListener("click", () => {
 btEnter.addEventListener("click", async () => {
     const expressao = inText.value;
     try {
-        const response = await fetch("http://http://127.0.0.1:5000/calcular", {
-            methodo: "POST",
+        const response = await fetch("http://localhost:5000/calcular", {
+            method: "POST", // Corrigido de "methodo" para "method"
             headers: {
                 "Content-Type": "application/json"
             },
@@ -53,7 +53,7 @@ btEnter.addEventListener("click", async () => {
             dvAnswer.textContent = data.resultado;
         }
         else {
-            dvAnswer.textContent = "Erro: " (data.erro || "Resposta inesperada do servidor.");
+            dvAnswer.textContent = "Erro: " + (data.erro || "Resposta inesperada do servidor."); // Corrigido concatenação
         }
     } catch (error) {
         dvAnswer.textContent = "Erro na conexão.";
